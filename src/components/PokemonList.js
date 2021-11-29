@@ -23,6 +23,7 @@ const PokemonList = () => {
           <Link to={`/pokemon/${randomNb}`}>
             <img src="pokeball.png" height="30" alt="pokeball" />
           </Link>
+
           <h1>Pokédex</h1>
           {pokemonList.data.map((pokemon) => {
             return (

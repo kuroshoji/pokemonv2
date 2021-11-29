@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetPokemon } from "../actions/pokemonActions";
 import _ from "lodash";
+import { PokemonContainer } from "./styles/PokemonContainer.styled";
 
 const Pokemon = (props) => {
   const pokemonName = props.match.params.pokemon;
@@ -33,10 +34,10 @@ const Pokemon = (props) => {
   };
 
   return (
-    <div>
+    <PokemonContainer>
       <h1>{pokemonName}</h1>
       {ShowData()}
-    </div>
+    </PokemonContainer>
   );
 };
 
