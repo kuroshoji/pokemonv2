@@ -17,6 +17,7 @@ const Pokemon = (props) => {
       const pokeData = pokemonState.data[pokemonName];
       return (
         <div>
+          <h1>{pokeData.name}</h1>
           <img src={pokeData.sprites.front_default} alt="" />
           <h3>Stats</h3>
           {pokeData.stats.map((pokemon) => {

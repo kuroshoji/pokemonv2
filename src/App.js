@@ -6,7 +6,6 @@ import Pokemon from "./containers/Pokemon";
 function App() {
   return (
     <div className="App">
-      <img src="logo.png" height="300" alt="logo" />
       <Switch>
         <Route path={"/"} exact component={PokemonList} />
         <Route path={"/pokemon/:pokemon"} exact component={Pokemon} />
