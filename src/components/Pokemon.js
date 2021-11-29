@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetPokemon } from "../actions/pokemonActions";
 import _ from "lodash";
 import { PokemonContainer } from "./styles/PokemonContainer.styled";
+import { useHistory } from "react-router-dom";
 
 const Pokemon = (props) => {
   const pokemonName = props.match.params.pokemon;
   const dispatch = useDispatch();
   const pokemonState = useSelector((state) => state.Pokemon);
+  let history = useHistory();
 
   useEffect(() => {
     dispatch(GetPokemon(pokemonName));
@@ -34,10 +36,13 @@ const Pokemon = (props) => {
   };
 
   return (
-    <PokemonContainer>
-      <h1>{pokemonName}</h1>
-      {ShowData()}
-    </PokemonContainer>
+    <div>
+      <PokemonContainer>
+        <h1>{pokemonName}</h1>
+        {ShowData()}
+      </PokemonContainer>
+      <button onClick={() => history.goBack()}>Back</button>
+    </div>
   );
 };
 
