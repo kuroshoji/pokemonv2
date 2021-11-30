@@ -2,7 +2,7 @@ const DefaultState = {
   data: {},
 };
 
-const PokemonReducer = (state = DefaultState, action) => {
+const pokemonReducer = (state = DefaultState, action) => {
   if (action.type === "POKEMON") {
     return {
       ...state,
@@ -15,4 +15,4 @@ const PokemonReducer = (state = DefaultState, action) => {
   return state;
 };
 
-export default PokemonReducer;
+export default pokemonReducer;

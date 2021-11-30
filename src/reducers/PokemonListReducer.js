@@ -2,7 +2,7 @@ const DefaultState = {
   data: [],
 };
 
-const PokemonListReducer = (state = DefaultState, action) => {
+const pokemonListReducer = (state = DefaultState, action) => {
   if (action.type === "POKEMON_LIST") {
     return {
       ...state,
@@ -12,4 +12,4 @@ const PokemonListReducer = (state = DefaultState, action) => {
   return state;
 };
 
-export default PokemonListReducer;
+export default pokemonListReducer;

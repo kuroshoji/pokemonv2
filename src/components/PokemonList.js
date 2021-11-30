@@ -1,21 +1,20 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
-import { GetPokemonList } from "../actions/pokemonActions";
+import { getPokemonList } from "../actions/pokemonActions";
 import { Link } from "react-router-dom";
 
 const PokemonList = () => {
   const dispatch = useDispatch();
   const pokemonList = useSelector((state) => state.PokemonList);
   const randomNb = Math.floor(Math.random() * pokemonList.data.length);
-  let i = 0;
-  console.log(pokemonList.data[1]);
+  //console.log(pokemonList.data[1]);
 
   useEffect(() => {
-    dispatch(GetPokemonList());
+    dispatch(getPokemonList());
   }, [PokemonList]);
 
-  const ShowData = () => {
+  const showData = () => {
     if (!_.isEmpty(pokemonList.data)) {
       return (
         <div>
@@ -25,13 +24,13 @@ const PokemonList = () => {
           </Link>
 
           <h1>Pokédex</h1>
-          {pokemonList.data.map((pokemon) => {
+          {pokemonList.data.map((pokemon, index) => {
             return (
               <div key={pokemon.name}>
                 <p>
-                  #{++i} {pokemon.name}
+                  #{++index} {pokemon.name}
                 </p>
-                <Link to={`/pokemon/${i}`}>
+                <Link to={`/pokemon/${index}`}>
                   <img src="pokeball.png" height="30" alt="pokeball" />
                 </Link>
               </div>
@@ -42,7 +41,7 @@ const PokemonList = () => {
     }
   };
 
-  return <div>{ShowData()}</div>;
+  return <div>{showData()}</div>;
 };
 
 export default PokemonList;

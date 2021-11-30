@@ -1,20 +1,39 @@
-import axios from "axios";
+export const getPokemonList = () => {
+  return async (dispatch) => {
+    const result = await fetch(
+      `https://pokeapi.co/api/v2/pokemon?limit=151%27`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-export const GetPokemonList = () => async (dispatch) => {
-  const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=151%27`);
+    const json = await result.json();
 
-  dispatch({
-    type: "POKEMON_LIST",
-    payload: res.data,
-  });
+    dispatch({
+      type: "POKEMON_LIST",
+      payload: json,
+    });
+  };
 };
 
-export const GetPokemon = (pokemon) => async (dispatch) => {
-  const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+export const getPokemon = (pokemon) => {
+  return async (dispatch) => {
+    const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-  dispatch({
-    type: "POKEMON",
-    payload: res.data,
-    pokemonName: pokemon,
-  });
+    const json = await result.json();
+
+    dispatch({
+      type: "POKEMON",
+      payload: json,
+      pokemonName: pokemon,
+    });
+  };
 };
