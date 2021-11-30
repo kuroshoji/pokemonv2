@@ -4,9 +4,6 @@ export const getPokemonList = () => {
       `https://pokeapi.co/api/v2/pokemon?limit=151%27`,
       {
         method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
       }
     );
 
@@ -23,9 +20,6 @@ export const getPokemon = (pokemon) => {
   return async (dispatch) => {
     const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
     });
 
     const json = await result.json();
