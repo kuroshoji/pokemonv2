@@ -4,8 +4,7 @@ import { getPokemon } from "../actions/pokemonActions";
 import _ from "lodash";
 import { PokemonContainer } from "./styles/PokemonContainer.styled";
 import { useHistory } from "react-router-dom";
-import { stats } from "./Stats";
-
+import Stats from "./Stats";
 
 const Pokemon = (props) => {
   const pokemonName = props.match.params.pokemon;
@@ -20,7 +19,11 @@ const Pokemon = (props) => {
   const showData = () => {
     if (!_.isEmpty(pokemonState.data[pokemonName])) {
       const pokeData = pokemonState.data[pokemonName];
-      return <div>{stats(pokeData)}</div>;
+      return (
+        <div>
+          <Stats pokeData={pokeData} />
+        </div>
+      );
     }
   };
 

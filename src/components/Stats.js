@@ -1,12 +1,12 @@
 import React from "react";
 
-export const stats = (props) => {
+const Stats = (props) => {
   return (
     <div>
-      <h1>{props.name}</h1>
-      <img src={props.sprites.front_default} alt="" />
+      <h1>{props.pokeData.name}</h1>
+      <img src={props.pokeData.sprites.front_default} alt="" />
       <h3>Stats</h3>
-      {props.stats.map((pokemon) => {
+      {props.pokeData.stats.map((pokemon) => {
         return (
           <p key={pokemon.stat.name}>
             {pokemon.stat.name} {pokemon.base_stat}
@@ -16,3 +16,5 @@ export const stats = (props) => {
     </div>
   );
 };
+
+export default Stats;

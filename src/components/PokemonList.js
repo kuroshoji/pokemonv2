@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import { getPokemonList } from "../actions/pokemonActions";
-import { random } from "./Random";
-import { pokemons } from "./Pokemons";
+import Random from "./Random";
+import Pokemons from "./Pokemons";
 
 const PokemonList = () => {
   const dispatch = useDispatch();
@@ -19,8 +19,8 @@ const PokemonList = () => {
     if (!_.isEmpty(pokemonList.data)) {
       return (
         <div>
-          {random(pokemonList)}
-          {pokemons(pokemonList)}
+          <Random pokemonList={pokemonList} />
+          <Pokemons pokemonList={pokemonList} />
         </div>
       );
     }

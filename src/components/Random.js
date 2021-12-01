@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const random = (props) => {
-  const randomNb = Math.floor(Math.random() * props.data.length);
-  
+const Random = (props) => {
+  const randomNb = Math.floor(Math.random() * props.pokemonList.data.length);
+
   return (
     <div>
       <h3>Choose a random Pokemon </h3>
@@ -13,3 +13,5 @@ export const random = (props) => {
     </div>
   );
 };
+
+export default Random;
