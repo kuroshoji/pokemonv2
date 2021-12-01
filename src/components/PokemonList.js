@@ -13,17 +13,18 @@ const PokemonList = () => {
 
   useEffect(() => {
     dispatch(getPokemonList());
-  }, [PokemonList]);
+  }, []);
 
   const showData = () => {
-    if (!_.isEmpty(pokemonList.data)) {
+    if (_.isEmpty(pokemonList.data)) {
+      return null;
+    }
       return (
         <div>
           <Random pokemonList={pokemonList} />
           <Pokemons pokemonList={pokemonList} />
         </div>
       );
-    }
   };
 
   return <div>{showData()}</div>;

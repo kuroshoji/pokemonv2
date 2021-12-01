@@ -14,17 +14,18 @@ const Pokemon = (props) => {
 
   useEffect(() => {
     dispatch(getPokemon(pokemonName));
-  }, [Pokemon]);
+  }, []);
 
   const showData = () => {
-    if (!_.isEmpty(pokemonState.data[pokemonName])) {
-      const pokeData = pokemonState.data[pokemonName];
-      return (
-        <div>
-          <Stats pokeData={pokeData} />
-        </div>
-      );
+    if (_.isEmpty(pokemonState.data[pokemonName])) {
+      return null;
     }
+    const pokeData = pokemonState.data[pokemonName];
+    return (
+      <div>
+        <Stats pokeData={pokeData} />
+      </div>
+    );
   };
 
   return (
