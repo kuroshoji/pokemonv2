@@ -10,29 +10,23 @@ const Pokemon = (props) => {
   const pokemonName = props.match.params.pokemon;
   const dispatch = useDispatch();
   const pokemonState = useSelector((state) => state.Pokemon);
-  let history = useHistory();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(getPokemon(pokemonName));
-  }, []);
+  }, [pokemonName]);
 
-  const showData = () => {
-    if (_.isEmpty(pokemonState.data[pokemonName])) {
-      return null;
-    }
-    const pokeData = pokemonState.data[pokemonName];
-    return (
-      <div>
-        <Stats pokeData={pokeData} />
-      </div>
-    );
-  };
+  const pokeData = pokemonState.data[pokemonName];
 
   return (
     <div>
       <PokemonContainer>
         <h1>{pokemonName}</h1>
-        {showData()}
+        <div>
+          {_.isEmpty(pokemonState.data[pokemonName]) ? null : (
+            <Stats pokeData={pokeData} />
+          )}
+        </div>
       </PokemonContainer>
       <button onClick={() => history.goBack()}>Back</button>
     </div>

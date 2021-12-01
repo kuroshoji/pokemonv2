@@ -1,17 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Pokemons = (props) => {
+
+
+
+
+const Pokemons = ({pokemonList, index}) => {
   return (
     <div>
       <h1>Pokédex</h1>
-      {props.pokemonList.data.map((pokemon, index) => {
+      {pokemonList.data.map((pokemon, index) => {
         return (
           <div key={pokemon.name}>
             <p>
-              #{++index} {pokemon.name}
+              #{index + 1} {pokemon.name}
             </p>
-            <Link to={`/pokemon/${index}`}>
+            <Link to={`/pokemon/${index + 1}`}>
               <img src="pokeball.png" height="30" alt="pokeball" />
             </Link>
           </div>

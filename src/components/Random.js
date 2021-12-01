@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Random = (props) => {
-  const randomNb = Math.floor(Math.random() * props.pokemonList.data.length);
+const Random = ({ pokemonList }) => {
+  const randomNb = Math.floor(Math.random() * pokemonList.data.length);
 
   return (
     <div>

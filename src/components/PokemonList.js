@@ -15,19 +15,16 @@ const PokemonList = () => {
     dispatch(getPokemonList());
   }, []);
 
-  const showData = () => {
-    if (_.isEmpty(pokemonList.data)) {
-      return null;
-    }
-      return (
-        <div>
-          <Random pokemonList={pokemonList} />
-          <Pokemons pokemonList={pokemonList} />
-        </div>
-      );
-  };
+  if (_.isEmpty(pokemonList.data)) {
+    return null;
+  }
 
-  return <div>{showData()}</div>;
+  return (
+    <div>
+      <Random pokemonList={pokemonList}/>
+      <Pokemons pokemonList={pokemonList} />
+    </div>
+  );
 };
 
 export default PokemonList;
