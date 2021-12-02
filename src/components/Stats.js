@@ -1,6 +1,14 @@
 import React from "react";
 
-const Stats = ({pokeData}) => {
+const Stat = ({ pokemon }) => {
+  return (
+    <p key={pokemon.stat.name}>
+      {pokemon.stat.name} {pokemon.base_stat}
+    </p>
+  );
+};
+
+const Stats = ({ pokeData }) => {
   return (
     <div>
       <h1>{pokeData.name}</h1>
@@ -8,9 +16,7 @@ const Stats = ({pokeData}) => {
       <h3>Stats</h3>
       {pokeData.stats.map((pokemon) => {
         return (
-          <p key={pokemon.stat.name}>
-            {pokemon.stat.name} {pokemon.base_stat}
-          </p>
+          <Stat pokemon={pokemon} />
         );
       })}
     </div>
