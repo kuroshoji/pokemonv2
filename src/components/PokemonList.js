@@ -8,6 +8,7 @@ import Pokemons from "./Pokemons";
 const PokemonList = () => {
   const dispatch = useDispatch();
   const pokemonList = useSelector((state) => state.PokemonList);
+  
   //console.log(pokemonList.data[1]);
 
   useEffect(() => {
