@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Random = ({ pokemonList }) => {
+export const Random = ({ pokemonList }) => {
   const randomNb = Math.floor(Math.random() * pokemonList.data.length);
 
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Stat = ({ pokemon }) => {
+export const Stat = ({ pokemon }) => {
   return (
     <p key={pokemon.stat.name}>
       {pokemon.stat.name} {pokemon.base_stat}
@@ -8,7 +8,7 @@ const Stat = ({ pokemon }) => {
   );
 };
 
-const Stats = ({ pokeData }) => {
+export const Stats = ({ pokeData }) => {
   return (
     <div>
       <h1>{pokeData.name}</h1>
