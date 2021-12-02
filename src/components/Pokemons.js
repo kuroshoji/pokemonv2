@@ -5,9 +5,9 @@ export const Pokemon = ({ pokemon, index }) => {
   return (
     <div key={pokemon.name}>
       <p>
-        #{++index} {pokemon.name}
+        #{index + 1} {pokemon.name}
       </p>
-      <Link to={`/pokemon/${index}`}>
+      <Link to={`/pokemon/${index + 1}`}>
         <img src="pokeball.png" height="30" alt="pokeball" />
       </Link>
     </div>
